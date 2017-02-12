@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Component("customerFacadeBean")
 public class CustomerFacadeImpl implements CustomerFacade {
     public String buySomething(String name) {
+        System.out.println("hello world");
         return "buy " + name + " success";
     }
 }
