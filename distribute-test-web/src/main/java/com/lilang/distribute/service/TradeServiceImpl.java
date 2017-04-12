@@ -15,9 +15,10 @@ public class TradeServiceImpl implements TradeService {
 
     @Autowired
     private CustomerFacade customerFacade;
-    @Override
+
+    @ResponseBody
     @RequestMapping("/trade")
-    public @ResponseBody TradeResponse tradeGood(String id) {
+    public TradeResponse tradeGood(String id) {
         String s = customerFacade.buySomething(id);
         TradeResponse response = new TradeResponse();
         if ("S".equals(s)) {
