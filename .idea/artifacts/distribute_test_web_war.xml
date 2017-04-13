@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="distribute-test-web:war">
-    <output-path>$PROJECT_DIR$/distribute-test-web/target</output-path>
-    <root id="archive" name="distribute-test-web.war">
-      <element id="artifact" artifact-name="distribute-test-web:war exploded" />
-    </root>
-  </artifact>
-</component>
