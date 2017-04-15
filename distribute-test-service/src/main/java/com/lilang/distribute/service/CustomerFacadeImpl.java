@@ -1,7 +1,6 @@
 package com.lilang.distribute.service;
 
 import com.lilang.distribute.test.facade.CustomerFacade;
-import org.apache.cxf.common.util.StringUtils;
 import org.springframework.stereotype.Component;
 
 /**

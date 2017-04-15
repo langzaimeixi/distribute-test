@@ -19,11 +19,24 @@
     <distribute.test.version>1.0-SNAPSHOT</distribute.test.version>
   </properties>
 
+  <dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.lilang.distribute</groupId>
+      <artifactId>distribute-test-facade</artifactId>
+      <version>${distribute.test.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.lilang.distribute</groupId>
+      <artifactId>distribute-test-service</artifactId>
+      <version>${distribute.test.version}</version>
     </dependency>
 
     <!-- springframework dependency -->
@@ -133,7 +146,7 @@
 
 
   </dependencies>
-
+  </dependencyManagement>
 
   <distributionManagement>
     <site>
