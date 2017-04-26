@@ -2,7 +2,8 @@
 
 <script>
     function test() {
-        alert("this is a message");
+        var v = #{helloWorld};
+        alert(v);
     }
 
 </script>
