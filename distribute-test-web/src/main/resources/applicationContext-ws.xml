@@ -20,5 +20,19 @@
         </jaxws:serviceBean>
     </jaxws:server>
 
+    <jaxws:server id="authFacade" serviceClass="com.lilang.distribute.test.facade.AuthFacade"
+                  address="/authFacadeRemote">
+        <jaxws:serviceBean>
+            <ref bean="authFacadeBean"></ref>
+        </jaxws:serviceBean>
+    </jaxws:server>
+
+    <jaxws:server id="bankcardFacade" serviceClass="com.lilang.distribute.test.facade.BankcardFacade"
+                  address="/bankcardFacadeRemote">
+        <jaxws:serviceBean>
+            <ref bean="bankcardFacadeBean"></ref>
+        </jaxws:serviceBean>
+    </jaxws:server>
+
 
 </beans>

@@ -14,4 +14,8 @@
 
     <dubbo:service interface="com.lilang.distribute.test.facade.CustomerFacade" ref="customerFacadeBean" />
 
+    <dubbo:service interface="com.lilang.distribute.test.facade.AuthFacade" ref="authFacadeBean" />
+
+    <dubbo:service interface="com.lilang.distribute.test.facade.BankcardFacade" ref="bankcardFacadeBean" />
+
 </beans>
