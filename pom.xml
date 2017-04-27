@@ -191,6 +191,7 @@
     <module>distribute-test-facade</module>
     <module>distribute-test-service</module>
     <module>distribute-test-web</module>
+      <module>distribute-test-dal</module>
   </modules>
 
   <build>
