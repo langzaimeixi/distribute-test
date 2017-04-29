@@ -23,4 +23,5 @@ public class BankcardInfoRes extends AbstractRes {
     private String reserveTel;
     private String belongName;
     private Date expireDate;
+    private String status;
 }

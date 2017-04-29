@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:spring/datasource.properties" />
+    </bean>
+    <!-- <context:property-placeholder location="datasource.properties"/> -->
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${driverClassName}" />
+        <property name="url" value="${jdbc_url}" />
+        <property name="username" value="${jdbc_username}" />
+        <property name="password" value="${jdbc_password}" />
+        <property name="initialSize" value="${initalSize}" />
+        <property name="maxActive" value="${maxActive}" />
+        <property name="minIdle" value="${minIdle}" />
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="typeAliasesPackage" value="com.lilang.distribute.test.dal.model" />
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <!--<property name="mapperLocations" value="classpath:com/lilang/mydubbo/consumer/mapper/*Mapper.xml" />-->
+        <property name="mapperLocations" >
+            <list>
+                <value>classpath:/**/*Mapper.xml</value>
+            </list>
+        </property>
+
+        <!--<property name="plugins">
+
+        </property>-->
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.lilang.distribute.test.dal.dao" />
+        <property name="annotationClass" value="org.springframework.stereotype.Repository" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+<!--
+    <bean id="studentDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.lilang.mydubbo.consumer.dao.StudentDao" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+-->
+
+    <!-- 配置spring事物 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!-- 声明使用注解事物 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+</beans>

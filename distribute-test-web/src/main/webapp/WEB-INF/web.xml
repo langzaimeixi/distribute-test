@@ -8,7 +8,7 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-      classpath*:/applicationContext*.xml
+      classpath*:spring/applicationContext*.xml
     </param-value>
   </context-param>
   
@@ -21,7 +21,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath*:/webApplicationContext.xml</param-value>
+      <param-value>classpath*:/spring/webApplicationContext.xml</param-value>
     </init-param>
   </servlet>
 

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lilang.distribute.test.dal.dao.BankCardDao" >
+  <resultMap id="BaseResultMap" type="com.lilang.distribute.test.dal.model.BankCardDO" >
+    <constructor >
+      <idArg column="card_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="card_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bank_short" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="card_index" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="card_bin" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="customer_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="belong_area" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="reserve_tel" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="belong_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="expire_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="status" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    card_id, card_type, bank_short, card_index, card_bin, customer_id, belong_area, reserve_tel, 
+    belong_name, expire_date, status, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_BANK_CARD
+    where card_id = #{cardId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from T_BANK_CARD
+    where card_id = #{cardId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lilang.distribute.test.dal.model.BankCardDO" >
+    insert into T_BANK_CARD (card_id, card_type, bank_short, 
+      card_index, card_bin, customer_id, 
+      belong_area, reserve_tel, belong_name, 
+      expire_date, status, create_time, 
+      update_time)
+    values (#{cardId,jdbcType=INTEGER}, #{cardType,jdbcType=VARCHAR}, #{bankShort,jdbcType=VARCHAR}, 
+      #{cardIndex,jdbcType=VARCHAR}, #{cardBin,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, 
+      #{belongArea,jdbcType=VARCHAR}, #{reserveTel,jdbcType=VARCHAR}, #{belongName,jdbcType=VARCHAR}, 
+      #{expireDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lilang.distribute.test.dal.model.BankCardDO" >
+    insert into T_BANK_CARD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cardId != null" >
+        card_id,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="bankShort != null" >
+        bank_short,
+      </if>
+      <if test="cardIndex != null" >
+        card_index,
+      </if>
+      <if test="cardBin != null" >
+        card_bin,
+      </if>
+      <if test="customerId != null" >
+        customer_id,
+      </if>
+      <if test="belongArea != null" >
+        belong_area,
+      </if>
+      <if test="reserveTel != null" >
+        reserve_tel,
+      </if>
+      <if test="belongName != null" >
+        belong_name,
+      </if>
+      <if test="expireDate != null" >
+        expire_date,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cardId != null" >
+        #{cardId,jdbcType=INTEGER},
+      </if>
+      <if test="cardType != null" >
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankShort != null" >
+        #{bankShort,jdbcType=VARCHAR},
+      </if>
+      <if test="cardIndex != null" >
+        #{cardIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBin != null" >
+        #{cardBin,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="belongArea != null" >
+        #{belongArea,jdbcType=VARCHAR},
+      </if>
+      <if test="reserveTel != null" >
+        #{reserveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="belongName != null" >
+        #{belongName,jdbcType=VARCHAR},
+      </if>
+      <if test="expireDate != null" >
+        #{expireDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lilang.distribute.test.dal.model.BankCardDO" >
+    update T_BANK_CARD
+    <set >
+      <if test="cardType != null" >
+        card_type = #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankShort != null" >
+        bank_short = #{bankShort,jdbcType=VARCHAR},
+      </if>
+      <if test="cardIndex != null" >
+        card_index = #{cardIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBin != null" >
+        card_bin = #{cardBin,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        customer_id = #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="belongArea != null" >
+        belong_area = #{belongArea,jdbcType=VARCHAR},
+      </if>
+      <if test="reserveTel != null" >
+        reserve_tel = #{reserveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="belongName != null" >
+        belong_name = #{belongName,jdbcType=VARCHAR},
+      </if>
+      <if test="expireDate != null" >
+        expire_date = #{expireDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where card_id = #{cardId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lilang.distribute.test.dal.model.BankCardDO" >
+    update T_BANK_CARD
+    set card_type = #{cardType,jdbcType=VARCHAR},
+      bank_short = #{bankShort,jdbcType=VARCHAR},
+      card_index = #{cardIndex,jdbcType=VARCHAR},
+      card_bin = #{cardBin,jdbcType=VARCHAR},
+      customer_id = #{customerId,jdbcType=VARCHAR},
+      belong_area = #{belongArea,jdbcType=VARCHAR},
+      reserve_tel = #{reserveTel,jdbcType=VARCHAR},
+      belong_name = #{belongName,jdbcType=VARCHAR},
+      expire_date = #{expireDate,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where card_id = #{cardId,jdbcType=INTEGER}
+  </update>
+</mapper>

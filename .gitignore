@@ -1,5 +1,6 @@
 .idea/
 *.iml
+*log/
 distribute-test-facade/src/main/resources/
 distribute-test-facade/src/test/
 distribute-test-facade/target/
@@ -7,3 +8,5 @@ distribute-test-service/src/test/
 distribute-test-service/target/
 distribute-test-web/src/main/webapp/WEB-INF/views/
 distribute-test-web/target/
+distribute-test-dal/src/test/
+distribute-test-dal/target/

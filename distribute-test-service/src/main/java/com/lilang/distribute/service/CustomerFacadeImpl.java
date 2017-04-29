@@ -1,6 +1,7 @@
 package com.lilang.distribute.service;
 
 import com.lilang.distribute.test.facade.CustomerFacade;
+import com.lilang.distribute.test.facade.res.CustomerInfoRes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,10 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component("customerFacadeBean")
 public class CustomerFacadeImpl implements CustomerFacade {
+    public CustomerInfoRes queryCustomerInfoById(String customerId) {
+        return null;
+    }
+
     public String buySomething(String name) {
         log.info("begin CustomerFacadeImpl#buySomething, name={}", name);
         String result = null;

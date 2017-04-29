@@ -1,5 +1,7 @@
 package com.lilang.distribute.test.facade;
 
+import com.lilang.distribute.test.facade.res.CustomerInfoRes;
+
 import javax.jws.WebService;
 
 /**
@@ -8,6 +10,8 @@ import javax.jws.WebService;
 
 @WebService
 public interface CustomerFacade {
+
+    CustomerInfoRes queryCustomerInfoById(String customerId);
 
     String buySomething(String name);
 }
