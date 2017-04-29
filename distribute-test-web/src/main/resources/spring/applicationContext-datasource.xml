@@ -2,9 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
-       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.lilang.distribute.test.dal.dao" />
 
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -25,12 +27,12 @@
         <property name="dataSource" ref="dataSource" />
         <property name="typeAliasesPackage" value="com.lilang.distribute.test.dal.model" />
         <property name="configLocation" value="classpath:mybatis-config.xml" />
-        <!--<property name="mapperLocations" value="classpath:com/lilang/mydubbo/consumer/mapper/*Mapper.xml" />-->
-        <property name="mapperLocations" >
+        <property name="mapperLocations" value="classpath*:/mapper/*Mapper.xml" />
+        <!--<property name="mapperLocations" >
             <list>
-                <value>classpath:/**/*Mapper.xml</value>
+                <value>classpath:/com/lilang/distribute/test/dal/mapper/*Mapper.xml</value>
             </list>
-        </property>
+        </property>-->
 
         <!--<property name="plugins">
 

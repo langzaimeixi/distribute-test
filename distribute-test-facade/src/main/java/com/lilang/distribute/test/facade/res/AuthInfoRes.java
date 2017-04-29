@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class AuthInfoRes extends AbstractRes {
-    private String id;
+    private int id;
     private String authType;
     private String customerId;
     private String customerName;

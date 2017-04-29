@@ -1,7 +1,9 @@
 package com.lilang.distribute.test.dal.dao;
 
 import com.lilang.distribute.test.dal.model.BankCardDO;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface BankCardDao {
     int deleteByPrimaryKey(Integer cardId);
 

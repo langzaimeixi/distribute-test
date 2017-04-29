@@ -9,5 +9,5 @@ import javax.jws.WebService;
  */
 @WebService
 public interface AuthFacade {
-    AuthInfoRes queryAuthInfo(String param);
+    AuthInfoRes queryAuthInfo(int param);
 }

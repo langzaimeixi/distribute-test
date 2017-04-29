@@ -43,6 +43,11 @@
       <artifactId>distribute-test-dal</artifactId>
       <version>${distribute.test.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.lilang.distribute</groupId>
+      <artifactId>distribute-test-aspect</artifactId>
+      <version>${distribute.test.version}</version>
+    </dependency>
 
     <!-- springframework dependency -->
     <dependency>
@@ -89,7 +94,6 @@
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
-
       <version>3.1.1</version>
     </dependency>
 
@@ -213,6 +217,13 @@
       <version>2.8.1</version>
     </dependency>
 
+    <!-- aspectj -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.6</version>
+    </dependency>
+
   </dependencies>
   </dependencyManagement>
 
@@ -228,6 +239,7 @@
     <module>distribute-test-service</module>
     <module>distribute-test-web</module>
       <module>distribute-test-dal</module>
+      <module>distribute-test-aspect</module>
   </modules>
 
   <build>

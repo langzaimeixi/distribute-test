@@ -19,6 +19,11 @@
             <artifactId>distribute-test-service</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.lilang.distribute</groupId>
+            <artifactId>distribute-test-aspect</artifactId>
+        </dependency>
+
         <!-- springframework dependency -->
         <dependency>
             <groupId>org.springframework</groupId>

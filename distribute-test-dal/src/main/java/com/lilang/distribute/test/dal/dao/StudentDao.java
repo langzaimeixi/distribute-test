@@ -1,7 +1,9 @@
 package com.lilang.distribute.test.dal.dao;
 
 import com.lilang.distribute.test.dal.model.StudentDO;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface StudentDao {
     int deleteByPrimaryKey(String studentId);
 
