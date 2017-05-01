@@ -30,6 +30,21 @@ public class AuthDO {
         this.updateTime = updateTime;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("AuthDO{");
+        sb.append("id=").append(id);
+        sb.append(", authType='").append(authType).append('\'');
+        sb.append(", customerId='").append(customerId).append('\'');
+        sb.append(", customerName='").append(customerName).append('\'');
+        sb.append(", status='").append(status).append('\'');
+        sb.append(", authEntityNo='").append(authEntityNo).append('\'');
+        sb.append(", createTime=").append(createTime);
+        sb.append(", updateTime=").append(updateTime);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public AuthDO() {
         super();
     }

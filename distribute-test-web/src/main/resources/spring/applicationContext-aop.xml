@@ -7,9 +7,9 @@
     <context:component-scan base-package="com.lilang.distribute.aspect" />
     <aop:aspectj-autoproxy/>
     <aop:config proxy-target-class="true">
-        <aop:aspect id="facadePerformanceAdvice">
-            <aop:pointcut id="methooPointcut" expression="execution(* com.lilang.distribute.service.*FacadeImpl.*(..))" />
-            <aop:around method="serviceCost" pointcut-ref="methooPointcut" />
+        <aop:aspect ref="facadePerformanceAdvice">
+            <aop:pointcut id="methodPointcut" expression="execution(* com.lilang.distribute.service.*FacadeImpl.*(..))" />
+            <aop:around method="serviceCost" pointcut-ref="methodPointcut" />
         </aop:aspect>
     </aop:config>
 

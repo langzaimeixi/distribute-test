@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.UUID;
+
 /**
  * Created by lilang on 17/2/12.
  */
@@ -18,8 +20,8 @@ public class TradeServiceImpl implements TradeService {
 
     @ResponseBody
     @RequestMapping("/trade")
-    public TradeResponse tradeGood(String id) {
-        String s = customerFacade.buySomething(id);
+    public TradeResponse tradeGood(String name) {
+        String s = customerFacade.buySomething(name, UUID.randomUUID().toString());
         TradeResponse response = new TradeResponse();
         if ("S".equals(s)) {
             response.setCode("000000");

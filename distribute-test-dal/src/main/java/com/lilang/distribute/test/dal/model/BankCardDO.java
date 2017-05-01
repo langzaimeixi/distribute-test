@@ -45,6 +45,26 @@ public class BankCardDO {
         this.updateTime = updateTime;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("BankCardDO{");
+        sb.append("cardId=").append(cardId);
+        sb.append(", cardType='").append(cardType).append('\'');
+        sb.append(", bankShort='").append(bankShort).append('\'');
+        sb.append(", cardIndex='").append(cardIndex).append('\'');
+        sb.append(", cardBin='").append(cardBin).append('\'');
+        sb.append(", customerId='").append(customerId).append('\'');
+        sb.append(", belongArea='").append(belongArea).append('\'');
+        sb.append(", reserveTel='").append(reserveTel).append('\'');
+        sb.append(", belongName='").append(belongName).append('\'');
+        sb.append(", expireDate=").append(expireDate);
+        sb.append(", status='").append(status).append('\'');
+        sb.append(", createTime=").append(createTime);
+        sb.append(", updateTime=").append(updateTime);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public BankCardDO() {
         super();
     }

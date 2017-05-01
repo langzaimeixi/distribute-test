@@ -36,6 +36,23 @@ public class CustomerDO {
         this.updateTime = updateTime;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CustomerDO{");
+        sb.append("customerId=").append(customerId);
+        sb.append(", customerName='").append(customerName).append('\'');
+        sb.append(", regAccount='").append(regAccount).append('\'');
+        sb.append(", phoneNo='").append(phoneNo).append('\'');
+        sb.append(", identityNo='").append(identityNo).append('\'');
+        sb.append(", identityType='").append(identityType).append('\'');
+        sb.append(", loginName='").append(loginName).append('\'');
+        sb.append(", loginPassword='").append(loginPassword).append('\'');
+        sb.append(", createTime=").append(createTime);
+        sb.append(", updateTime=").append(updateTime);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public CustomerDO() {
         super();
     }

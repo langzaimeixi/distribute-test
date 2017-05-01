@@ -15,7 +15,7 @@
     <property name="log_dir" value="myCat_log" />
 
     <!-- 日志最大的历史 30天 -->
-    <property name="maxHistory" value="30" />
+    <property name="maxHistory" value="3" />
 
     <!-- ConsoleAppender 控制台输出日志 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -129,7 +129,22 @@
             <maxHistory>${maxHistory}</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="daoPerform" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_dir}/perform/%d{yyyy-MM-dd}/dao-log.log</fileNamePattern>
+            <maxHistory>${maxHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -144,7 +159,14 @@
         <appender-ref ref="ERROR" />
         <appender-ref ref="INFO" />
        <!-- <appender-ref ref="WARN" />
-        <appender-ref ref="DEBUG" />
-        <appender-ref ref="TRACE" />-->
+        <appender-ref ref="DEBUG" /> -->
     </root>
+    <logger name="com.lilang.distribute.aspect.advice">
+        <level value="TRACE" />
+        <appender-ref ref="TRACE" />
+    </logger>
+    <logger name="com.lilang.distribute.aspect.plugin">
+        <level value="TRACE" />
+        <appender-ref ref="daoPerform" />
+    </logger>
 </configuration>

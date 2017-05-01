@@ -13,5 +13,5 @@ public interface CustomerFacade {
 
     CustomerInfoRes queryCustomerInfoById(String customerId);
 
-    String buySomething(String name);
+    String buySomething(String name, String traceLogId);
 }

@@ -18,6 +18,17 @@ public class StudentDO {
         this.studentBirthday = studentBirthday;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("StudentDO{");
+        sb.append("studentId='").append(studentId).append('\'');
+        sb.append(", studentName='").append(studentName).append('\'');
+        sb.append(", studentSex='").append(studentSex).append('\'');
+        sb.append(", studentBirthday=").append(studentBirthday);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public StudentDO() {
         super();
     }

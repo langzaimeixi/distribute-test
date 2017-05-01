@@ -34,9 +34,9 @@
             </list>
         </property>-->
 
-        <!--<property name="plugins">
-
-        </property>-->
+        <property name="plugins">
+            <bean class="com.lilang.distribute.aspect.plugin.DaoTimeInterceptor" />
+        </property>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

@@ -18,6 +18,10 @@
             <groupId>com.lilang.distribute</groupId>
             <artifactId>distribute-test-dal</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.lilang.distribute</groupId>
+            <artifactId>distribute-test-aspect</artifactId>
+        </dependency>
 
     </dependencies>
 
