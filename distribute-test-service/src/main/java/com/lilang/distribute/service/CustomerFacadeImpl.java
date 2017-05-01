@@ -36,6 +36,5 @@ public class CustomerFacadeImpl implements CustomerFacade {
         }
         log.info("end CustomerFacadeImpl#buySomething, result={}", result);
         return result;
-
     }
 }

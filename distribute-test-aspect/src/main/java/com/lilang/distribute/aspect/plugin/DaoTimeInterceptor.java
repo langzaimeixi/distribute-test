@@ -29,22 +29,38 @@ public class DaoTimeInterceptor implements Interceptor {
         if (tl.get() == null) {
             tl.set(new StopWatch());
         }
-        StopWatch stopWatch = tl.get();
-        if (clazz == Executor.class) {
-            stopWatch.start("CONN_TIME_TASK");
-        }
-        if (clazz == StatementHandler.class) {//预编译
+        try {
+            StopWatch stopWatch = tl.get();
+            String statement = null;
+            if (clazz == Executor.class) {
+                stopWatch.start("CONN_TIME_TASK");
+                Object[] args = invocation.getArgs();
+                for (Object oj : args) {
+                    if (oj instanceof MappedStatement) {
+                        MappedStatement mappedStatement = (MappedStatement) oj;
+                        statement = mappedStatement.getId();
+                    }
+                }
+            }
+            if (clazz == StatementHandler.class) {//预编译
+                stopWatch.stop();
+                stopWatch.start("EXE_SQL_TASK");
+                return invocation.proceed();
+            }
+            Object obj = invocation.proceed();
             stopWatch.stop();
-            stopWatch.start("EXE_SQL_TASK");
+            perfromanceDaoLog(stopWatch, MDC.get("TRACE_LOG_ID"), statement);
+            return obj;
+        } catch (Exception e) {
+            log.error("deal interceptor error, e:", e);
+        } finally {
             return invocation.proceed();
         }
-        Object obj = invocation.proceed();
-        stopWatch.stop();
-        perfromanceDaoLog(stopWatch, MDC.get("TRACE_LOG_ID"));
-        return obj;
+
+
     }
 
-    private void perfromanceDaoLog(StopWatch stopWatch, String trace_log_id) {
+    private void perfromanceDaoLog(StopWatch stopWatch, String trace_log_id, String statement) {
         StopWatch.TaskInfo[] taskInfos = stopWatch.getTaskInfo();
         Long connTime = null;
         Long exeTime = null;
@@ -59,7 +75,7 @@ public class DaoTimeInterceptor implements Interceptor {
         }
         Long totalTime = stopWatch.getTotalTimeMillis();
         StringBuilder sb = new StringBuilder(trace_log_id + "");
-        sb.append(" ").append(connTime).append(" ").append(exeTime).append(" ").append(totalTime);
+        sb.append(" ").append(statement).append(" ").append(connTime).append(" ").append(exeTime).append(" ").append(totalTime);
         log.trace(sb.toString());
     }
 
