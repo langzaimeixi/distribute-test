@@ -12,6 +12,7 @@ import org.springframework.util.StopWatch;
 
 import java.lang.reflect.Method;
 import java.sql.Connection;
+import java.util.Arrays;
 import java.util.Properties;
 
 /**
@@ -29,8 +30,8 @@ public class DaoTimeInterceptor implements Interceptor {
         if (tl.get() == null) {
             tl.set(new StopWatch());
         }
+        StopWatch stopWatch = tl.get();
         try {
-            StopWatch stopWatch = tl.get();
             String statement = null;
             if (clazz == Executor.class) {
                 stopWatch.start("CONN_TIME_TASK");
